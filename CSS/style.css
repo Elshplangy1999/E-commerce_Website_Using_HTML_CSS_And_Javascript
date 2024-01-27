@@ -382,6 +382,17 @@ a {
 @media (max-width: 1300px) {
   .features .container .feature-box {
     margin-bottom: 15px;
+    width: 400px;
+  }
+}
+
+@media (max-width: 426px) {
+  .features .container .feature-box {
+    width: 400px;
+  }
+
+  .features .container .feature-box img {
+    width: 350px;
   }
 }
 
@@ -394,6 +405,12 @@ a {
   width: fit-content;
   border-radius: 5px;
   margin: 10px auto;
+}
+
+@media (max-width: 426px) {
+  .features .container .feature-box h6 {
+    font-size: 25px;
+  }
 }
 
 .features .container .feature-box:first-child h6 {
