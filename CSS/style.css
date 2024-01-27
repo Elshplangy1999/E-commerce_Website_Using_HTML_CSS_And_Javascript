@@ -386,13 +386,21 @@ a {
   }
 }
 
-@media (max-width: 426px) {
+@media ((min-width: 427px) and (max-width: 768px)) {
   .features .container .feature-box {
-    width: 400px;
+    margin-left: 108px;
   }
+}
 
+@media (max-width: 768px) {
   .features .container .feature-box img {
     width: 350px;
+  }
+}
+
+@media (max-width: 425px) {
+  .features .container .feature-box {
+    margin-left: 0px;
   }
 }
 
