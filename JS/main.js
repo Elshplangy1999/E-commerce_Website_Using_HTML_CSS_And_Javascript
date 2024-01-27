@@ -476,7 +476,7 @@ productsCartBtns.forEach((button) => {
     let productBox = e.target.parentElement.parentElement.parentElement;
     let price = productBox.querySelector(".price").innerHTML;
     let title = productBox.querySelector("h3").innerHTML;
-    let image = "." + productBox.querySelector("img").getAttribute("src");
+    let image = productBox.querySelector("img").getAttribute("src");
     let obj = {
       id: productsArray.length,
       imageSrc: image,
