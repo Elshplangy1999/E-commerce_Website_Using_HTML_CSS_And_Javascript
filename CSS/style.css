@@ -642,17 +642,6 @@ a {
   background-image: url(../Images/Banner/b10.jpg);
 }
 
-@media (max-width: 768px) {
-  .banner .container .box-one, 
-  .banner .container .box-two {
-    width: 100%;
-  }
-
-  .banner .container .box-one {
-    margin-bottom: 30px;
-  }
-}
-
 .banner .container .box-one,
 .banner .container .box-two {
   width: 49%;
@@ -663,6 +652,17 @@ a {
   align-items: flex-start;
   flex-direction: column;
   padding-left: 30px;
+}
+
+@media (max-width: 768px) {
+  .banner .container .box-one, 
+  .banner .container .box-two {
+    width: 100%;
+  }
+
+  .banner .container .box-one {
+    margin-bottom: 30px;
+  }
 }
 
 .banner .container .box-one p:first-of-type,
@@ -1480,6 +1480,12 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 .blogs .blog-pagination-buttons {
   margin-bottom: 80px;
+}
+
+@media (max-width: 425px) {
+  .blogs .blog-pagination-buttons {
+    margin-left: 105px;
+  }
 }
 
 /* End Blog */
