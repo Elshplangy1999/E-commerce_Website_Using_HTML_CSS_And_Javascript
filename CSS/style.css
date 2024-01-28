@@ -132,6 +132,12 @@ a {
   }
 }
 
+@media (max-width: 426px) {   
+  .landing-page header .header-links .links {
+    height: 101%;
+  }
+}
+
 .landing-page header .header-links .links a.li-signup {
   position: relative;
 }
@@ -1048,25 +1054,6 @@ footer .container .box-one {
   }
 }
 
-@media (max-width: 426px) {
-  footer .container .box-one,
-  footer .container .box-two,
-  footer .container .box-three,
-  footer .container .box-four {
-    width: 100%;
-  }
-
-  footer .container .box-one,
-  footer .container .box-two,
-  footer .container .box-three {
-    margin-bottom: 15px;
-  }
-
-  footer .container .box-one img {
-    margin-left: 55px;
-  }
-}
-
 footer .container .box-one p:not(:last-child) {
   margin-bottom: 5px;
 }
@@ -1179,6 +1166,25 @@ footer .container .box-four img {
 
 footer .container .box-four img[alt="Pay Methods"] {
   margin-top: 15px;
+}
+
+@media (max-width: 426px) {
+  footer .container .box-one,
+  footer .container .box-two,
+  footer .container .box-three,
+  footer .container .box-four {
+    width: 100%;
+  }
+
+  footer .container .box-one,
+  footer .container .box-two,
+  footer .container .box-three {
+    margin-bottom: 15px;
+  }
+
+  footer .container .box-one img {
+    margin-left: 55px;
+  }
 }
 
 /* End Footer */
