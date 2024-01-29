@@ -64,7 +64,7 @@ a {
 
 @media (max-width: 426px) { 
   .container {
-    width: 616.8px;
+    width: 100%;
   }
 }
 
@@ -87,6 +87,12 @@ a {
   left: 0;
   width: 100%;
   z-index: 999;
+}
+
+@media (max-width: 426px) {   
+  .landing-page header {
+    width: 425px;
+  }
 }
 
 .landing-page header .container {
@@ -285,6 +291,7 @@ a {
   .landing-page .landing-content .container {
     background-color: #E3E6F3;
     align-items: center;
+    width: 425px;
   }
 }
 
@@ -362,7 +369,7 @@ a {
 
 @media (max-width: 490px) {
   .features {
-    width: 616.8px;
+    width: 425px;
   }
 }
 
@@ -412,13 +419,14 @@ a {
 
 @media (max-width: 768px) {
   .features .container .feature-box img {
-    width: 350px;
+    width: 100%;
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 426px) {
   .features .container .feature-box {
     margin-left: 0px;
+    width: 100%;
   }
 }
 
@@ -480,7 +488,7 @@ a {
 
 @media (max-width: 426px) {
   .featured-products {
-    width: 616.8px;
+    width: 425px;
   }
 }
 
@@ -503,6 +511,12 @@ a {
 @media (max-width: 1024px) {
   .featured-products .container {
     justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 426px) {
+  .featured-products .container {
+    width: 100%;
   }
 }
 
@@ -600,7 +614,7 @@ a {
 
 @media (max-width: 426px) {
   .repair-services {
-    width: 616.8px;
+    width: 425px;
   }
 }
 
@@ -624,6 +638,12 @@ a {
 @media (max-width: 768px) {
   .repair-services h2 {
     font-size: 33px;
+  }
+}
+
+@media (max-width: 426px) {
+  .repair-services h2 {
+    font-size: 28px;
   }
 }
 
@@ -674,6 +694,12 @@ a {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+@media (max-width: 426px) {
+  .banner .container {
+    padding: 0px 20px;
+  }
 }
 
 .banner .container .box-one {
@@ -765,6 +791,12 @@ a {
   }
 }
 
+@media (max-width: 426px) {
+  .banner-two .container {
+    padding: 0px 40px;
+  }
+}
+
 .banner-two .container .box-one {
   background-image: url(../Images/Banner/b7.jpg);
 }
@@ -837,7 +869,7 @@ a {
 
 @media (max-width: 426px) {
   .sign-up {
-    width: 616.8px;
+    width: 425px;
   }
 }
 
@@ -850,6 +882,7 @@ a {
 @media (max-width: 426px) {
   .sign-up .container {
     width: 100%;
+    padding: 0px 20px;
   }
 }
 
@@ -875,7 +908,7 @@ a {
 
 @media (max-width: 426px) {
   .sign-up .container .text h2 {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .sign-up .container .text p {
@@ -908,6 +941,12 @@ a {
   outline: none;
   transition: var(--main-transition);
   cursor: pointer;
+}
+
+@media (max-width: 426px) {
+  .sign-up .container .form input[type="submit"] {
+    padding: 10px 15px;
+  }
 }
 
 .sign-up .container .form input[type="submit"]:hover {
@@ -943,7 +982,7 @@ a {
 
 @media (max-width: 426px) {
   .signup-popup {
-    width: 500px;
+    width: 370px;
   }
 }
 
@@ -964,6 +1003,7 @@ a {
   margin-bottom: 10px;
   font-weight: bold;
   font-size: 22px;
+  text-align: left;
 }
 
 .signup-popup form  input[type="text"],
@@ -975,6 +1015,7 @@ a {
   box-sizing: border-box;
   border: 2px solid #ccc;
   margin-bottom: 20px;
+  border-radius: 7px;
 }
 
 .signup-popup form input[type="submit"] {
@@ -1027,6 +1068,12 @@ footer {
   padding: var(--main-padding) 0;
 }
 
+@media (max-width: 426px) {
+  footer {
+    width: 425px;
+  }
+}
+
 footer .container {
   display: flex;
   justify-content: space-between;
@@ -1042,6 +1089,7 @@ footer .container {
   footer .container {
     flex-direction: column;
     text-align: center;
+    width: 100%;
   }
 }
 
@@ -1277,7 +1325,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 426px) {
   .product-details {
-    width: 616.8px;
+    width: 425px;
   }
 }
 
@@ -1409,7 +1457,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 426px) {
   .blog {
-    width: 616.8px;
+    width: 425px;
   }
 }
 
@@ -1525,12 +1573,6 @@ footer .container .box-four img[alt="Pay Methods"] {
   margin-bottom: 80px;
 }
 
-@media (max-width: 426px) {
-  .blogs .blog-pagination-buttons {
-    margin-left: 105px;
-  }
-}
-
 /* End Blog */
 
 /* Start About */
@@ -1547,7 +1589,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 426px) {
   .about {
-    width: 616.8px;
+    width: 425px;
   }
 }
 
@@ -1614,6 +1656,12 @@ footer .container .box-four img[alt="Pay Methods"] {
   text-align: center;
 }
 
+@media (max-width: 426px) {
+  .download-app .container {
+    padding: 0px 20px;
+  }
+}
+
 .download-app .container h2 {
   margin-bottom: 35px;
   font-size: 70px;
@@ -1621,7 +1669,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 426px) {
   .download-app .container h2 {
-    font-size: 50px;
+    font-size: 45px;
   }
 }
 
@@ -1644,7 +1692,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 426px) {
   .download-app .container video {
-    width: 456.8px;
+    width: 385px;
   }
 }
 
@@ -1743,8 +1791,8 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 426px) {
   .members-list {
-    padding: 0 var(--main-padding);
-    width: 616.8px;
+    padding: 0 20px;
+    width: 425px;
     margin-bottom: 60px;
   }
 }
@@ -1760,6 +1808,12 @@ footer .container .box-four img[alt="Pay Methods"] {
 @media (max-width: 768px) {
   .members-list .list-container {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 426px) {
+  .members-list .list-container {
+    padding: 30px 20px;
   }
 }
 
@@ -1881,6 +1935,19 @@ input:focus::placeholder,
   padding: var(--main-padding) 0;
 }
 
+@media (max-width: 426px) {
+  .cart-details {
+    width: 425px;
+  }
+}
+
+@media (max-width: 426px) {
+  .cart-details .container {
+    width: 100%;
+    padding: 0px 5px;
+  }
+}
+
 .cart-details .container h2 {
   text-align: center;
   margin-top: 30px;
@@ -1888,13 +1955,19 @@ input:focus::placeholder,
 
 @media (max-width: 426px) {
   .cart-details .container h2 {
-    font-size: 46px;
+    font-size: 31px;
   }
 }
 
 .cart-details .container table {
   width: 100%;
   text-align: center;
+}
+
+@media (max-width: 426px) {
+  .cart-details .container table {
+    width: 100%;
+  }
 }
 
 .cart-details .container table thead {
@@ -1916,7 +1989,8 @@ input:focus::placeholder,
 
 @media (max-width: 426px) {
   .cart-details .container table thead tr th {
-    font-size: 8.5px;
+    font-size: 12px;
+    padding: 15px 8px;
   }
 }
 
@@ -1932,7 +2006,7 @@ input:focus::placeholder,
 
 @media (max-width: 426px) {
   .cart-details .container table tbody img {
-    width: 40px;
+    width: 50px;
   }
 }
 
@@ -1999,11 +2073,11 @@ input:focus::placeholder,
   .cart-details .container table tbody td:nth-child(3),
   .cart-details .container table tbody td:nth-child(5),
   .cart-details .container table tbody td:nth-child(6) button {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .cart-details .container table tbody td:nth-child(4) input {
-    width: 50px;
+    width: 35px;
     padding: 5px 1px 5px 10px;
   }
 
@@ -2066,11 +2140,11 @@ input:focus::placeholder,
 
 @media (max-width: 426px) {
   .shop {
-    width: 616.8px;
+    width: 425px;
   }
 
   .contact {
-    width: 616.8px;
+    width: 425px;
   }
 }
 
