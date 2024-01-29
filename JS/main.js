@@ -615,6 +615,7 @@ cartRemoveBtns.forEach((cartRemoveBtn) => {
     let targetedSubtotal = window.localStorage.getItem(
       `cartSubtotal ${targetedIndex - 1}`
     );
+    
     setSubtotal();
     let newSum =
       +cartFootTotal.innerHTML.match(/\d+/)[0] -
@@ -622,6 +623,7 @@ cartRemoveBtns.forEach((cartRemoveBtn) => {
     cartFootTotal.innerHTML = `$${newSum}`;
     window.localStorage.setItem("cartFootTotal", cartFootTotal.innerHTML);
     targetedTbody.remove();
+    window.location.reload();
     count--;
     cartSpan.innerHTML = count;
     window.localStorage.setItem("spanContent", count);
