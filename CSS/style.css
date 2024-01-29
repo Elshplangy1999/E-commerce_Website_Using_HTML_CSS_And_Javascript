@@ -98,7 +98,7 @@ a {
 
 @media (max-width: 391px) {   
   .landing-page header {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -297,7 +297,7 @@ a {
 
 @media (max-width: 391px) { 
   .landing-page .landing-content .container {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -381,7 +381,7 @@ a {
 
 @media (max-width: 391px) {
   .features {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -502,7 +502,7 @@ a {
 
 @media (max-width: 391px) {
   .featured-products {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -634,7 +634,7 @@ a {
 
 @media (max-width: 391px) {
   .repair-services {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -719,6 +719,7 @@ a {
 @media (max-width: 431px) {
   .banner .container {
     padding: 0px 20px;
+    width: 100%;
   }
 }
 
@@ -895,7 +896,7 @@ a {
 
 @media (max-width: 391px) {
   .sign-up {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -1102,7 +1103,7 @@ footer {
 
 @media (max-width: 391px) {
   footer {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -1372,7 +1373,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 391px) {
   .product-details {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -1510,7 +1511,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 391px) {
   .blog {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -1526,6 +1527,12 @@ footer .container .box-four img[alt="Pay Methods"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .blogs .container {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1669,7 +1676,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 391px) {
   .about {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -1686,6 +1693,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 @media (max-width: 768px) {
   .about-us .container {
     flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -1878,6 +1886,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 @media (max-width: 768px) {
   .contact-us .container {
     flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -1964,7 +1973,7 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 391px) {
   .members-list {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -2114,7 +2123,7 @@ input:focus::placeholder,
 
 @media (max-width: 391px) {
   .cart-details {
-    width: 390px;
+    width: 380px;
   }
 }
 
@@ -2334,11 +2343,11 @@ input:focus::placeholder,
 
 @media (max-width: 391px) {
   .shop {
-    width: 390px;
+    width: 380px;
   }
 
   .contact {
-    width: 390px;
+    width: 380px;
   }
 }
 
