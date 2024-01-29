@@ -95,12 +95,9 @@ function registerForm() {
     <div class="container">
       <form>
         <h2>Sign Up</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+        <input type="text" id="username" name="username" placeholder="Username" required />
+        <input type="email" id="email" name="email" placeholder="Email" required />
+        <input type="password" id="password" name="password" placeholder="Password" required />
         <input type="submit" value="Sign Up" />
       </form>
     </div>
@@ -113,7 +110,7 @@ function registerForm() {
   );
 
   popupSignUpBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+
     let userName = document.querySelector(
       '.signup-popup form input[id="username"]'
     );
@@ -121,17 +118,22 @@ function registerForm() {
     let password = document.querySelector(
       '.signup-popup form input[id="password"]'
     );
-    window.localStorage.setItem("userName", userName.value);
-    window.localStorage.setItem("email", email.value);
-    window.localStorage.setItem("password", password.value);
-    popUp.remove();
-    popupOverlay.remove();
-    headerSignUpLink.innerHTML = window.localStorage.getItem("userName")[0];
-    Swal.fire({
-      title: "You signed up successfully",
-      icon: "success",
-    });
-    cartSpan.style.right = "40px";
+    if (userName.value === "" || email.value === "" || password.value === "") {
+      return false;
+    } else {
+      e.preventDefault();
+      window.localStorage.setItem("userName", userName.value);
+      window.localStorage.setItem("email", email.value);
+      window.localStorage.setItem("password", password.value);
+      popUp.remove();
+      popupOverlay.remove();
+      headerSignUpLink.innerHTML = window.localStorage.getItem("userName")[0];
+      Swal.fire({
+        title: "You signed up successfully",
+        icon: "success",
+      });
+      cartSpan.style.right = "40px";
+    }
   });
 
   let popupCloseBtn = document.querySelector(".signup-popup .popup-closebtn");
