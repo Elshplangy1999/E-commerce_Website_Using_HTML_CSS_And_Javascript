@@ -889,6 +889,24 @@ a {
   color: #ffc107;
 }
 
+@media (max-width: 991px) {
+  .sign-up .container .text {
+    width: 315px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sign-up .container .text {
+    width: 252px;
+  }
+}
+
+@media (max-width: 575px) {
+  .sign-up .container .text {
+    width: 200px;
+  }
+}
+
 .sign-up .container .form input[type="email"] {
   height: 60px;
   width: 70%;
@@ -943,15 +961,9 @@ a {
   padding: 15px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .signup-popup {
-    width: 600px;
-  }
-}
-
-@media (max-width: 575px) {
-  .signup-popup {
-    width: 370px;
+    width: 80%;
   }
 }
 
@@ -1654,9 +1666,9 @@ footer .container .box-four img[alt="Pay Methods"] {
   text-align: center;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 991px) {
   .download-app .container {
-    padding: 0px 20px;
+    padding: 0px 30px;
   }
 }
 
@@ -1673,16 +1685,14 @@ footer .container .box-four img[alt="Pay Methods"] {
 
 @media (max-width: 575px) {
   .download-app .container h2 {
-    font-size: 40px;
+    font-size: 34px;
   }
 }
 
 .download-app .container video {
-  width: 85%;
+  width: 98%;
   border-radius: 20px;
 }
-
-
 
 /* End About */
 
@@ -1919,6 +1929,17 @@ input:focus::placeholder,
   margin: 8px 0;
 }
 
+@media (max-width: 575px) {
+  .members-list .list-container .reviews .review-box .info p {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .members-list .list-container .reviews .review-box .info p span {
+    margin-bottom: 7px;
+  }
+}
+
 /* End Contact */
 
 /* Start Cart */
@@ -1954,6 +1975,12 @@ input:focus::placeholder,
   margin-top: 30px;
 }
 
+@media (max-width: 575px) { 
+  .cart-details .container h2 {
+    font-size: 40px;
+  }
+}
+
 .cart-details .container table {
   width: 100%;
   text-align: center;
@@ -1972,7 +1999,7 @@ input:focus::placeholder,
 
 @media (max-width: 991px) { 
   .cart-details .container table thead tr th {
-    padding: 20px 10px;
+    padding: 20px 3px;
     font-size: 18px;
   }
 }
@@ -2117,6 +2144,10 @@ input:focus::placeholder,
     font-size: 13px;
   }
 
+  .cart-details .container table tbody td:nth-child(2) {
+    width: 100px;
+  }
+
   .cart-details .container table tbody td:nth-child(4) input {
     width: 35px;
     padding: 5px 0px 5px 11px;
@@ -2125,6 +2156,11 @@ input:focus::placeholder,
   .cart-details .container table tbody td:nth-child(6) button {
     font-size: 12px;
     padding: 7px;
+  }
+
+  .cart-details .container table tfoot td:nth-child(1),
+  .cart-details .container table tfoot td:nth-child(2) {
+    font-size: 20px;
   }
 }
 
@@ -2175,6 +2211,22 @@ input:focus::placeholder,
 @media (min-width: 1400px) { 
   .container {
     max-width: 1400px;
+  }
+}
+
+@media (max-width: 575px) {
+  .shop h2 {
+    font-size: 40px;
+  }
+
+  .blog h2,
+  .about h2,
+  .contact h2 {
+    font-size: 45px;
+  }
+
+  .hashtag p {
+    font-size: 20px;
   }
 }
 
