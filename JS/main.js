@@ -414,8 +414,7 @@ let reviewsBox = document.querySelector(".reviews");
 let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
 reviews.forEach((review) => {
-  let reviewNode = new DOMParser().parseFromString(review, "text/html").body
-    .firstChild;
+  let reviewNode = new DOMParser().parseFromString(review, "text/html").body.firstChild;
   reviewsBox.appendChild(reviewNode);
 });
 
