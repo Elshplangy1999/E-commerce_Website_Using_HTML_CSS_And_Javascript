@@ -430,6 +430,8 @@ if (contactBtn) {
     ) {
       return false;
     } else {
+      e.preventDefault();
+      window.location.reload();
       let review = document.createElement("div");
       review.className = "review-box";
       review.innerHTML = `
