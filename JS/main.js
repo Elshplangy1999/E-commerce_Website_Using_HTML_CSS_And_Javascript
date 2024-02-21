@@ -110,7 +110,6 @@ function registerForm() {
   );
 
   popupSignUpBtn.addEventListener("click", (e) => {
-
     let userName = document.querySelector(
       '.signup-popup form input[id="username"]'
     );
@@ -413,10 +412,14 @@ let reviewsBox = document.querySelector(".reviews");
 
 let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
-reviews.forEach((review) => {
-  let reviewNode = new DOMParser().parseFromString(review, "text/html").body.firstChild;
-  reviewsBox.appendChild(reviewNode);
-});
+if (reviewsBox && reviews) {
+  reviews.forEach((review) => {
+    let reviewNode = new DOMParser().parseFromString(review, "text/html").body
+      .firstChild;
+    reviewsBox.appendChild(reviewNode);
+    window.location.reload();
+  });
+}
 
 if (contactBtn) {
   contactBtn.addEventListener("click", (e) => {
@@ -428,6 +431,7 @@ if (contactBtn) {
     ) {
       return false;
     } else {
+      e.preventDefault();
       let review = document.createElement("div");
       review.className = "review-box";
       review.innerHTML = `
@@ -436,7 +440,7 @@ if (contactBtn) {
         </div>
         <div class="info">
           <h3>${contactInputName.value}</h3>
-          <p>Senior ${contactInputTitle.value}</p>
+          <p>${contactInputTitle.value}</p>
           <p>Email: ${contactInputEmail.value}</p>
           <p>Message: ${contactTextarea.value}</p>
         </div>`;
@@ -588,12 +592,18 @@ function setSubtotal() {
 
 setSubtotal();
 
+// +window.localStorage.getItem("NoOfDeletedSubTotal")
+
 for (let i = 0; i < cartSubtotals.length; i++) {
   window.localStorage.setItem(
     `cartSubtotal ${i + 1}`,
     cartSubtotals[i].innerHTML
   );
 }
+
+// window.localStorage.removeItem(
+//   `cartSubtotal ${window.localStorage.getItem("NoOfDeletedSubTotal")}`
+// );
 
 if (cartFootTotal) {
   updateCartFootTotal();
@@ -614,7 +624,22 @@ cartRemoveBtns.forEach((cartRemoveBtn) => {
     let targetedSubtotal = window.localStorage.getItem(
       `cartSubtotal ${targetedIndex - 1}`
     );
-    
+    window.localStorage.removeItem(
+      `cartSubtotal ${+targetedTbody.getAttribute("tbodyid") + 1}`
+    );
+    window.localStorage.removeItem(
+      `cartInputValue ${+targetedTbody.getAttribute("tbodyid") + 1}`
+    );
+    // for (let i = 0; i < cartInputValue.length; i++) {
+    //   window.localStorage.setItem(
+    //     `cartSubtotal ${i + 1}`,
+    //     cartSubtotals[i].innerHTML
+    //   );
+    // }
+    // window.localStorage.setItem(
+    //   "NoOfDeletedSubTotal",
+    //   +targetedTbody.getAttribute("tbodyid") + 1
+    // );
     setSubtotal();
     let newSum =
       +cartFootTotal.innerHTML.match(/\d+/)[0] -
@@ -622,12 +647,13 @@ cartRemoveBtns.forEach((cartRemoveBtn) => {
     cartFootTotal.innerHTML = `$${newSum}`;
     window.localStorage.setItem("cartFootTotal", cartFootTotal.innerHTML);
     targetedTbody.remove();
-    window.location.reload();
+    // window.location.reload();
     count--;
     cartSpan.innerHTML = count;
     window.localStorage.setItem("spanContent", count);
     if (cartSpan.innerHTML === "0") {
       window.localStorage.removeItem("spanContent");
+      window.localStorage.removeItem(`NoOfDeletedSubTotal`);
       cartSpan.style.display = "none";
       tableDisplayNone();
       window.localStorage.removeItem("cartFootTotal");
