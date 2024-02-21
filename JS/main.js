@@ -417,7 +417,6 @@ if (reviewsBox && reviews) {
     let reviewNode = new DOMParser().parseFromString(review, "text/html").body
       .firstChild;
     reviewsBox.appendChild(reviewNode);
-    window.location.reload();
   });
 }
 
@@ -431,7 +430,6 @@ if (contactBtn) {
     ) {
       return false;
     } else {
-      e.preventDefault();
       let review = document.createElement("div");
       review.className = "review-box";
       review.innerHTML = `
