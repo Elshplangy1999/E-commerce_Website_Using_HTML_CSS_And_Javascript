@@ -549,126 +549,76 @@ if (table) {
 }
 
 let cartPrices = document.querySelectorAll(".cart-details table tbody .price");
-
 let cartInputs = document.querySelectorAll(".cart-details table input");
-
 let cartSubtotals = document.querySelectorAll(".cart-details table .subtotal");
-
-let cartFootTotal = document.querySelector(
-  ".cart-details table tfoot .foot-total"
-);
+let cartFootTotal = document.querySelector(".cart-details table tfoot .foot-total");
 
 function updateCartFootTotal() {
   let sum = 0;
-  for (let i = 0; i < cartSubtotals.length; i++) {
-    sum += +cartSubtotals[i].innerHTML.match(/\d+/)[0];
-  }
-  cartFootTotal.innerHTML = `$${sum}`;
+  document.querySelectorAll(".cart-details table .subtotal").forEach(subtotal => {
+    sum += +subtotal.innerHTML.replace(/[^0-9.-]+/g, "");
+  });
+  cartFootTotal.innerHTML = `$${sum.toFixed(2)}`;
   window.localStorage.setItem("cartFootTotal", cartFootTotal.innerHTML);
 }
 
 function setSubtotal() {
-  for (let i = 0; i < cartInputs.length; i++) {
-    cartInputs[i].value =
-      window.localStorage.getItem(`cartInputValue ${i + 1}`) || 1;
-    cartSubtotals[i].innerHTML =
-      window.localStorage.getItem(`cartSubtotal ${i + 1}`) || "$78";
-    cartInputs[i].onchange = function (e) {
-      cartSubtotals[i].innerHTML = `$${
-        +cartPrices[i].innerHTML.match(/\d+/)[0] * +cartInputs[i].value
-      }`;
+  cartInputs.forEach((input, index) => {
+    const productId = input.closest('tbody').getAttribute('tbodyid');
+    input.value = window.localStorage.getItem(`cartInputValue_${productId}`) || 1;
+    cartSubtotals[index].innerHTML = window.localStorage.getItem(`cartSubtotal_${productId}`) || "$78";
+    
+    input.onchange = function() {
+      const price = +cartPrices[index].innerHTML.match(/\d+/)[0];
+      const quantity = +input.value;
+      cartSubtotals[index].innerHTML = `$${price * quantity}`;
       updateCartFootTotal();
-      window.localStorage.setItem(
-        `cartSubtotal ${i + 1}`,
-        cartSubtotals[i].innerHTML
-      );
-      window.localStorage.setItem(
-        `cartInputValue ${i + 1}`,
-        cartInputs[i].value
-      );
+      window.localStorage.setItem(`cartSubtotal_${productId}`, cartSubtotals[index].innerHTML);
+      window.localStorage.setItem(`cartInputValue_${productId}`, input.value);
     };
-  }
+  });
 }
 
 setSubtotal();
 
-// +window.localStorage.getItem("NoOfDeletedSubTotal")
-
-for (let i = 0; i < cartSubtotals.length; i++) {
-  window.localStorage.setItem(
-    `cartSubtotal ${i + 1}`,
-    cartSubtotals[i].innerHTML
-  );
-}
-
-// window.localStorage.removeItem(
-//   `cartSubtotal ${window.localStorage.getItem("NoOfDeletedSubTotal")}`
-// );
-
 if (cartFootTotal) {
   updateCartFootTotal();
-  cartFootTotal.innerHTML =
-    window.localStorage.getItem("cartFootTotal") || "$0";
+  cartFootTotal.innerHTML = window.localStorage.getItem("cartFootTotal") || "$0";
 }
 
-let cartRemoveBtns = document.querySelectorAll(
-  ".cart-details table tbody button"
-);
+let cartRemoveBtns = document.querySelectorAll(".cart-details table tbody button");
 
 cartRemoveBtns.forEach((cartRemoveBtn) => {
   cartRemoveBtn.addEventListener("click", (e) => {
-    let targetedTbody = e.target.parentElement.parentElement.parentElement;
-    let targetedIndex = Array.from(
-      targetedTbody.parentElement.children
-    ).indexOf(targetedTbody);
-    let targetedSubtotal = window.localStorage.getItem(
-      `cartSubtotal ${targetedIndex - 1}`
-    );
-    window.localStorage.removeItem(
-      `cartSubtotal ${+targetedTbody.getAttribute("tbodyid") + 1}`
-    );
-    window.localStorage.removeItem(
-      `cartInputValue ${+targetedTbody.getAttribute("tbodyid") + 1}`
-    );
-    // for (let i = 0; i < cartInputValue.length; i++) {
-    //   window.localStorage.setItem(
-    //     `cartSubtotal ${i + 1}`,
-    //     cartSubtotals[i].innerHTML
-    //   );
-    // }
-    // window.localStorage.setItem(
-    //   "NoOfDeletedSubTotal",
-    //   +targetedTbody.getAttribute("tbodyid") + 1
-    // );
-    setSubtotal();
-    let newSum =
-      +cartFootTotal.innerHTML.match(/\d+/)[0] -
-      +targetedSubtotal.match(/\d+/)[0];
-    cartFootTotal.innerHTML = `$${newSum}`;
-    window.localStorage.setItem("cartFootTotal", cartFootTotal.innerHTML);
+    let targetedTbody = e.target.closest('tbody');
+    let productId = targetedTbody.getAttribute("tbodyid");
+    
+    // Remove from localStorage
+    window.localStorage.removeItem(`cartSubtotal_${productId}`);
+    window.localStorage.removeItem(`cartInputValue_${productId}`);
+    
+    // Remove from DOM
     targetedTbody.remove();
-    // window.location.reload();
+    
+    // Update total immediately after removal
+    updateCartFootTotal();
+    
+    // Update product count
     count--;
     cartSpan.innerHTML = count;
     window.localStorage.setItem("spanContent", count);
-    if (cartSpan.innerHTML === "0") {
+    
+    if (count === 0) {
+      // Clear all cart-related localStorage items
       window.localStorage.removeItem("spanContent");
-      window.localStorage.removeItem(`NoOfDeletedSubTotal`);
+      window.localStorage.removeItem("cartFootTotal");
+      window.localStorage.removeItem("products");
       cartSpan.style.display = "none";
       tableDisplayNone();
-      window.localStorage.removeItem("cartFootTotal");
-      window.localStorage.removeItem("spanContent");
-      window.localStorage.removeItem("products");
-      for (let i = 0; i < cartSubtotals.length; i++) {
-        window.localStorage.removeItem(`cartSubtotal ${i + 1}`);
-      }
-      for (let i = 0; i < cartInputs.length; i++) {
-        window.localStorage.removeItem(`cartInputValue ${i + 1}`);
-      }
     }
-    productsArray = productsArray.filter(
-      (product) => product.id != targetedTbody.getAttribute("tbodyId")
-    );
+    
+    // Update products array
+    productsArray = productsArray.filter(product => product.id != productId);
     window.localStorage.setItem("products", JSON.stringify(productsArray));
   });
 });
